@@ -1,0 +1,29 @@
+### Get all Sales
+GET http://localhost:3000/sales
+Accept: application/json
+
+### Get a sale by ID
+GET http://localhost:3000/sales/2
+Accept: application/json
+
+### Save a new sale
+POST http://localhost:3000/sales/save
+Content-Type: application/json
+
+{
+  "idCustomer": 1,
+  "total": 100
+}
+
+### Update a sale
+PUT http://localhost:3000/sales/4
+Content-Type: application/json
+
+{
+  "idCustomer": 1,
+  "total": 100
+}
+
+### Delete sale by ID
+DELETE http://localhost:3000/sales/3
+Accept: application/json

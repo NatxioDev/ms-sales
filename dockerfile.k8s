@@ -1,0 +1,29 @@
+FROM node:latest AS build
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+
+WORKDIR /home/node/app
+
+COPY . .
+
+ARG CI_COMMIT_SHORT_SHA
+ARG CI_COMMIT_MESSAGE
+ARG CI_COMMIT_REF_NAME
+ENV CI_COMMIT_SHORT_SHA=${CI_COMMIT_SHORT_SHA} \
+    CI_COMMIT_MESSAGE=${CI_COMMIT_MESSAGE} \
+    CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME}
+
+FROM build AS development
+CMD ["npm", "start"]
+EXPOSE 3000
+
+FROM build AS testing
+CMD ["npm", "start"]
+EXPOSE 3000
+
+FROM build AS sandbox
+CMD ["npm", "start"]
+EXPOSE 3000
+
+FROM build AS production
+CMD ["npm", "start"]
+EXPOSE 3000
