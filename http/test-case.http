@@ -1,10 +1,19 @@
-### Get all Sales
+### Get all Sales Info
 GET http://localhost:3000/sales
 Accept: application/json
 
-### Get a sale by ID
+### Get a sale info by ID
 GET http://localhost:3000/sales/2
 Accept: application/json
+
+### Get a books in a sale by ID
+GET http://localhost:3000/sales/2/book
+Accept: application/json
+
+### Get a sale complete info by sale
+GET http://localhost:3000/sales/1/complete
+Accept: application/json
+
 
 ### Save a new sale
 POST http://localhost:3000/sales/save
