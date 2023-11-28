@@ -1,6 +1,6 @@
 import { Controller, Body, Delete, Get, Param, Post, Put, HttpStatus } from '@nestjs/common';
 import { SaleService } from './sale.service';
-import { SaleDto, SaleHasBooksDto } from './sale.dto';
+import { SaleDto } from './sale.dto';
 
 
 @Controller('sales')
@@ -49,14 +49,6 @@ export class SaleController {
         };
     }
 
-    @Post('save')
-    async createBooksInSale(@Body() saleModel: SaleHasBooksDto){
-        return {
-            statusCode: HttpStatus.OK,
-            message: 'Books in Sale added successfully',
-            data: await this.saleService.insertBooks(saleModel),
-        };
-    }
 
     @Put(':idSale')
     async update(@Param('idSale') idSale: number, @Body() data: Partial<SaleDto>){

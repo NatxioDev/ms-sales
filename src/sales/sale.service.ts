@@ -54,8 +54,8 @@ export class SaleService {
     
     async insert(data: SaleDto){
         const sale = this.saleRepository.create(data);
-        await this.saleRepository.save(data);
-        return sale;
+        const salet = await this.saleRepository.save(data);
+        return salet;
     }
 
     async insertBooks(data: SaleHasBooksDto){

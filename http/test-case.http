@@ -1,31 +1,41 @@
 ### Get all Sales Info
-GET http://localhost:3000/sales
+GET http://localhost:2500/sales
 Accept: application/json
 
 ### Get a sale info by ID
-GET http://localhost:3000/sales/2
+GET http://localhost:2500/sales/10
 Accept: application/json
 
 ### Get a books in a sale by ID
-GET http://localhost:3000/sales/2/book
+GET http://localhost:2500/sales/10/book
 Accept: application/json
 
 ### Get a sale complete info by sale
-GET http://localhost:3000/sales/1/complete
+GET http://localhost:2500/sales/10/complete
 Accept: application/json
 
 
 ### Save a new sale
-POST http://localhost:3000/sales/save
+POST http://localhost:2500/sales/save
 Content-Type: application/json
 
 {
-  "idCustomer": 1,
-  "total": 100
+  "idCustomer": 2,
+  "total": 200
+}
+
+### Save a new book in a sale
+POST http://localhost:2500/detail/save
+Content-Type: application/json
+
+{
+  "idSale": 3,
+  "idBook": 2,
+  "cant": 1
 }
 
 ### Update a sale
-PUT http://localhost:3000/sales/4
+PUT http://localhost:2500/sales/4
 Content-Type: application/json
 
 {
@@ -34,5 +44,5 @@ Content-Type: application/json
 }
 
 ### Delete sale by ID
-DELETE http://localhost:3000/sales/3
+DELETE http://localhost:6000/sales/3
 Accept: application/json
